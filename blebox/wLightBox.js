@@ -263,9 +263,11 @@ class WLightBoxAccessoryWrapper extends AbstractBoxWrapper {
     onSetWhiteOnState(turnOn, callback) {
         // We should only handle turn OFF
         if (!turnOn) {
-            this.log("Setting 'On white' characteristic to %s ...", turnOn);
-            const newWhite = 0;
-            this.sendSetSimpleRgbStateCommand(this._getRgbAsHsv(), newWhite, callback);
+            setTimeout(function () {
+                this.log("Setting 'On white' characteristic to %s ...", turnOn);
+                const newWhite = 0;
+                this.sendSetSimpleRgbStateCommand(this._getRgbAsHsv(), newWhite, callback);
+            }, 1500)
         } else {
             callback(null); // success
         }
