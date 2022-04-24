@@ -267,7 +267,7 @@ class WLightBoxAccessoryWrapper extends AbstractBoxWrapper {
                 this.log("Setting 'On white' characteristic to %s ...", turnOn);
                 const newWhite = 0;
                 this.sendSetSimpleRgbStateCommand(this._getRgbAsHsv(), newWhite, callback);
-            }, 1500)
+            }.bind(this), 1500)
         } else {
             callback(null); // success
         }
